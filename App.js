@@ -1,15 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from "react";
 import { View, WebView, TouchableOpacity, Text } from "react-native";
 import { Container, Header, Button, Icon, Fab } from "native-base";
-// import { Fab } from "native-base";
 import Spinner from "react-native-loading-spinner-overlay";
 
 export default class App extends Component {
@@ -59,10 +50,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Spinner visible={this.state.visible} textStyle={{ color: "#FFF" }} />
+        <Spinner visible={this.state.visible} textStyle={{ color: "#FFFFFF" }} />
         <WebView
-          ref={r => {
-            this.webview = r;
+          ref={el => {
+            this.webview = el;
           }}
           onNavigationStateChange={this.onNavigationStateChange.bind(this)}
           source={{
@@ -70,7 +61,6 @@ export default class App extends Component {
           }}
           onLoadStart={this.loadStart.bind(this)}
           onLoadEnd={this.loadEnd.bind(this)}
-          // useWebKit={true}
           scalesPageToFit={false}
         />
         {this.displayBack()}
